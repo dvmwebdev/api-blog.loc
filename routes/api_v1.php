@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\CategoryController;
+use App\Http\Controllers\Api\v1\PostController;
 use App\Http\Controllers\Api\v1\UserController;
 use App\Http\Controllers\InfoController;
 
@@ -23,4 +24,8 @@ Route::group(['prefix' => 'user'], function () {
 
 Route::group(['prefix' => 'category'], function () {
   Route::get('', [CategoryController::class, 'index']);
+});
+
+Route::group(['prefix' => 'post'], function () {
+  Route::get('', [PostController::class, 'index']);
 });
