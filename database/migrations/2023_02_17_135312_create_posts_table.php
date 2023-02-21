@@ -9,9 +9,17 @@ return new class extends Migration {
   {
     Schema::create('posts', function (Blueprint $table) {
       $table->id();
-
-
+      $table->unsignedBigInteger('category_id');
+      $table->string('title');
+      $table->string('description');
+      $table->text('content');
+      $table->integer('published')->default(0);
+      $table->timestamp('date_publication');
+      $table->integer('likes');
+      $table->integer('dislikes');
       $table->timestamps();
+
+      $table->foreign('category_id')->references('id')->on('categories');
     });
   }
 
