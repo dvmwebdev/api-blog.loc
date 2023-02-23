@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Category\CategoryCollection;
+use App\Models\Category;
 use App\Services\CategoryService;
 
 class CategoryController extends Controller
@@ -15,6 +17,8 @@ class CategoryController extends Controller
 
   public function index()
   {
-    return $this->categoryService->getAll();
+    $categories = Category::get()->toTree();
+
+    return response(new CategoryCollection($categories));
   }
 }
