@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Http\Resources\Post\PostResource;
 use App\Models\Post;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class PostService
 {
-  public function getAll(): array|Collection
+  public function getAll(): AnonymousResourceCollection
   {
-    return Post::with('category')->get();
+    $posts = Post::with('category')->get();
+    return PostResource::collection($posts);
   }
 }
