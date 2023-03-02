@@ -26,6 +26,7 @@ Route::group(['prefix' => 'category'], function () {
   Route::get('', [CategoryController::class, 'index']);
 });
 
-Route::group(['prefix' => 'post'], function () {
+Route::group(['prefix' => 'posts'], function () {
   Route::get('', [PostController::class, 'index']);
+  Route::get('latest', [PostController::class, 'getPostsLatest']);
 });

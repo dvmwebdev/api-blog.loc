@@ -15,4 +15,10 @@ class PostService
     $posts = Post::with('category')->paginate(5);
     return PostResource::collection($posts);
   }
+
+  public function getLatest(int $number = 3): AnonymousResourceCollection
+  {
+    $postsLatest = Post::latest()->take($number)->get();
+    return PostResource::collection($postsLatest);
+  }
 }

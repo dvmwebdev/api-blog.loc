@@ -17,4 +17,9 @@ class PostController extends Controller
   {
     return $this->postService->getAll();
   }
+
+  public function getPostsLatest()
+  {
+    return $this->postService->getLatest();
+  }
 }
