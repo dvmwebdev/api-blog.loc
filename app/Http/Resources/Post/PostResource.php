@@ -17,6 +17,7 @@ class PostResource extends JsonResource
       'title' => $this->title,
       'description' => $this->description,
       'content' => $this->content,
+      'image' => $this->image,
       'likes' => $this->likes,
       'dislikes' => $this->dislikes,
       'create' => Carbon::parse($this->create_at)->format('d-m-Y H:i:s')

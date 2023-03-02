@@ -13,6 +13,7 @@ return new class extends Migration {
       $table->string('title');
       $table->string('description');
       $table->text('content');
+      $table->string('image');
       $table->integer('published')->default(0);
       $table->timestamp('date_publication');
       $table->integer('likes');

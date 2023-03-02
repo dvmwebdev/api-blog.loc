@@ -12,7 +12,7 @@ class PostService
 {
   public function getAll(): AnonymousResourceCollection
   {
-    $posts = Post::with('category')->get();
+    $posts = Post::with('category')->paginate(5);
     return PostResource::collection($posts);
   }
 }

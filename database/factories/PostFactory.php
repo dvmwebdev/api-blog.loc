@@ -12,9 +12,10 @@ class PostFactory extends Factory
   {
     return [
       'category_id' => Category::inRandomOrder()->get()[0]->id,
-      'title' => fake()->text(random_int(5, 10)),
-      'description' => fake()->text(20),
-      'content' => fake()->text(random_int(250, 500)),
+      'title' => fake()->text(random_int(5, 100)),
+      'description' => fake()->text(),
+      'content' => fake()->text(random_int(2500, 5000)),
+      'image' => fake()->imageUrl(150, 150, 'post', true),
       'published' => fake()->boolean(),
       'date_publication' => Carbon::now()->addDays(random_int(1, 15)),
       'likes' => random_int(100, 1000),
