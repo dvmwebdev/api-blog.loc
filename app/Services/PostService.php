@@ -21,4 +21,10 @@ class PostService
     $postsLatest = Post::latest()->take($number)->get();
     return PostResource::collection($postsLatest);
   }
+
+  public function getOne(int $id): PostResource
+  {
+    $post = Post::findOrFail($id);
+    return new PostResource($post);
+  }
 }

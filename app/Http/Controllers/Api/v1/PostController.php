@@ -18,8 +18,13 @@ class PostController extends Controller
     return $this->postService->getAll();
   }
 
-  public function getPostsLatest()
+  public function latest()
   {
     return $this->postService->getLatest();
+  }
+
+  public function show(int $id)
+  {
+    return $this->postService->getOne($id);
   }
 }

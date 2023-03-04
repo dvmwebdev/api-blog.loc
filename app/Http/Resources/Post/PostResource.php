@@ -20,7 +20,7 @@ class PostResource extends JsonResource
       'image' => $this->image,
       'likes' => $this->likes,
       'dislikes' => $this->dislikes,
-      'create' => Carbon::parse($this->create_at)->format('d-m-Y H:i:s')
+      'create' => Carbon::parse($this->created_at)->format('d-m-Y H:i:s')
     ];
   }
 }
